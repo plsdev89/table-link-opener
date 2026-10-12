@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Table Link Opener",
+  "version": "0.1.0",
+  "description": "Open all links inside tables on the current page when you click the extension.",
+  "permissions": ["scripting", "tabs", "activeTab", "storage"],
+  "action": {
+    "default_title": "Open table links"
+  },
+  "host_permissions": ["https://jobs.globalaetherion.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://jobs.globalaetherion.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  }
+}
